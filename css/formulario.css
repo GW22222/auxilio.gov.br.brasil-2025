@@ -1,0 +1,354 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 20px;
+}
+
+.logo-gov {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-gov img {
+    height: 40px;
+}
+
+.logo-gov span {
+    color: #1351b4;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 10px 0;
+}
+
+h1, h2, h3 {
+    color: #1351b4;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.pequeno {
+    font-size: 14px;
+    color: #666;
+}
+
+.urgente {
+    color: #d32f2f;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+/* Botões */
+.botao-consultar, .botao-proximo, .botao-verificar, .botao-finalizar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #1351b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-consultar:hover, .botao-proximo:hover, .botao-verificar:hover, .botao-finalizar:hover {
+    background-color: #0d3d8c;
+}
+
+/* Banner Topo */
+.banner-topo {
+    background-color: #e8f0fe;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Prova Social */
+.prova-social {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.depoimento {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.depoimento img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.depoimento span {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    margin-top: 5px;
+}
+
+.contador {
+    font-size: 14px;
+}
+
+.contador p {
+    margin-bottom: 8px;
+}
+
+/* Vídeo Explicativo */
+.video-explicativo {
+    margin: 20px 0;
+}
+
+.thumbnail {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Como Funciona */
+.como-funciona {
+    background-color: #f5f9ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.como-funciona ol {
+    padding-left: 20px;
+}
+
+.como-funciona li {
+    margin-bottom: 10px;
+}
+
+/* Bancos Parceiros */
+.bancos-parceiros {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.bancos-parceiros img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Formulários */
+form {
+    margin: 20px 0;
+}
+
+.campo-form {
+    margin-bottom: 15px;
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.campo-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.dupla {
+    display: flex;
+    gap: 10px;
+}
+
+.dupla .campo-form {
+    flex: 1;
+}
+
+.termos {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.termos input {
+    margin-top: 3px;
+}
+
+.termos label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Progresso */
+.progresso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.passo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.passo.ativo {
+    background-color: #1351b4;
+    color: white;
+}
+
+.linha {
+    flex: 1;
+    height: 2px;
+    background-color: #ddd;
+    max-width: 100px;
+}
+
+/* Aprovado */
+.aprovado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.valor-aprovado {
+    background-color: #e8f0fe;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.valor {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1351b4;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #1351b4;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Segurança */
+.seguranca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.seguranca img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Comprovante */
+.comprovante {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comprovante img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #e1e1e1;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.selos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.selos img {
+    height: 40px;
+}

