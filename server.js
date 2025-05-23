@@ -3,13 +3,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MercadoPagoConfig, Payment } = require('mercadopago');
 
+// Carrega variáveis de ambiente (se quiser usar .env localmente)
+require('dotenv').config();
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Configurar Mercado Pago com novo formato da SDK
+// Use variável de ambiente para token (mais seguro)
 const client = new MercadoPagoConfig({
-  accessToken: 'APP_USR-2877707535605999-051421-8678b94fd090cec6e74b864717c134bc-514128435'
+  accessToken: process.env.MP_ACCESS_TOKEN || 'APP_USR-2877707535605999-051421-8678b94fd090cec6e74b864717c134bc-514128435'
 });
 
 const payment = new Payment(client);
@@ -70,6 +73,9 @@ app.post('/gerar-pix', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('✅ Servidor rodando em http://localhost:5000');
+// 🚨 Use a porta dinâmica fornecida pelo Railway
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Servidor rodando na porta ${PORT}`);
 });
+
